@@ -6,8 +6,7 @@
 		if (PointChange.Type == POINT_GOLD) {
 			auto DoChanges = [=](long val, bool IsGrowing) {
 				long long wait = 0;
-				const auto realval = abs(PointChange.value - val);
-				if (realval < 10000) 
+				if (abs(PointChange.value - val) < 10000) 
 					wait = 1;
 				for (; val <= PointChange.value && IsGrowing; val++) {
 					CPythonPlayer::Instance().SetStatus(PointChange.Type, val);
